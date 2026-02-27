@@ -19,6 +19,19 @@ return {
           },
         },
       },
+
+      html = {},
+      cssls = {},
+      ts_ls = {
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+      },
+      liquid = {
+        cmd = { "shopify", "theme", "language-server" },
+        filetypes = { "liquid" },
+        root_dir = function()
+          return vim.fn.getcwd()
+        end,
+      },
     }
 
     for name, opts in pairs(servers) do
