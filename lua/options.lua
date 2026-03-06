@@ -7,7 +7,6 @@ vim.opt.number = true
 vim.opt.relativenumber = false
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
-vim.opt.scrolloff = 999
 
 -- Window behavior
 vim.opt.splitbelow = true
@@ -28,11 +27,43 @@ vim.opt.inccommand = "split"
 -- System
 vim.opt.clipboard = "unnamedplus"
 
+-- Diagnostics (LSP)
+vim.diagnostic.config({
+  virtual_text = {
+    spacing = 2,
+    prefix = "●",
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
+
 -- Keymaps
 
--- Formatting
-vim.keymap.set("n", "<leader>=", "gg=G", {
-  desc = "Format entire file (auto-indent)",
+-- Splits
+vim.keymap.set("n", "<leader>s", ":vsplit<CR>", {
+  desc = "Create new vertical split",
+  silent = true,
+})
+
+vim.keymap.set("n", "<C-h>", "<C-w>h", {
+  desc = "Move to left split",
+  silent = true,
+})
+
+vim.keymap.set("n", "<C-j>", "<C-w>j", {
+  desc = "Move to bottom split",
+  silent = true,
+})
+
+vim.keymap.set("n", "<C-k>", "<C-w>k", {
+  desc = "Move to top split",
+  silent = true,
+})
+
+vim.keymap.set("n", "<C-l>", "<C-w>l", {
+  desc = "Move to right split",
   silent = true,
 })
 
@@ -63,14 +94,3 @@ vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], {
   silent = true,
 })
 
--- Diagnostics (LSP)
-vim.diagnostic.config({
-  virtual_text = {
-    spacing = 2,
-    prefix = "●",
-  },
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = true,
-})
