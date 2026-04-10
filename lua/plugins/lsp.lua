@@ -22,7 +22,7 @@ return {
 
       html = {},
       cssls = {},
-      ts_ls = {
+      tsserver = {
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
       },
       liquid = {
